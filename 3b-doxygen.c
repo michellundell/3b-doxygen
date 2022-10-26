@@ -2,17 +2,33 @@
  * This software copies a string into a buffer, then it prints what it copied to stdout.
  * This is intentionally buggy code.
  *
- * @file 1a.c
+ * @file 3b-doxygen.c
  * @author Michel Lundell
+ * @copyright Michel Lundell 2023
 */
 
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * @brief bar is a very importent function
+ * 
+ * @param a bla bal bla 
+ * @param b bla bla bla
+ * @param c bla blabla
+ * @return int 
+ */
+int bar(int a, int b, char *c)
+{
+	printf("%d %d %c\n",a,b,c);
+}
 
 /**
- * @param[in] an address to a integer.
- * @param[out] returns void
+ * @brief This is a very important function that does
+ * a lot of important things.
+ *
+ * @param[in] a address to a integer.
+ * @param[out] a holds the answer to life.
 **/
 void foo(int *a)
 {
@@ -21,7 +37,7 @@ void foo(int *a)
 }
 
 /**
- * main entry point of the program.
+ * @brief main entry point of the program.
  * This program produce bitcoins
  *
  * @param[in] argc Number of command line arguments.
