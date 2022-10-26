@@ -9,6 +9,8 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
 
 /**
  * @brief bar is a very importent function
@@ -20,7 +22,7 @@
  */
 int bar(int a, int b, char *c)
 {
-	printf("%d %d %c\n",a,b,c);
+	printf("%d %d %c\n", a, b, c);
 }
 
 /**
@@ -48,15 +50,23 @@ void foo(int *a)
 int main(int argc, char **argv)
 {
 	char buf[30]; /* !< a buffer that holds some characters */
+	char *test = malloc(30); // allocating memory for pointer for argv[2]
+	argv[1] = "aaaaaaaaaaa";
+	argv[2] = "testing the function argv";
 
-	if( argc == 2) {
+	if(argv[1] != NULL && argv[2] != NULL) {
 		printf("%s\n",argv[1]);
-		strcpy(buf,argv[1]);
+		printf("%s\n", argv[2]);
+		strncpy(buf, argv[1], sizeof(buf));
+		strncpy(test, argv[2], 30);
 	} else {
 		strcpy(buf,"what can possibly go wrong?");
 	}
 
 	printf("buf = %s\n",buf);
+	printf("test = %s\n", test);
+
+	free(test);
 
 	return 0;
 }
